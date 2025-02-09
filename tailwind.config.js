@@ -11,8 +11,11 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                "hanken": ["Hanken Grotesk", "sans-serif"]
             },
+            colors: {
+                "black": "#060606"
+            }
         },
     },
     plugins: [],
