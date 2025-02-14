@@ -10,9 +10,9 @@ class Job extends Model
     /** @use HasFactory<\Database\Factories\JobFactory> */
     use HasFactory;
 
-    public function user()
+    public function employer()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Employer::class);
     }
     public function tag(string $name)
     {
