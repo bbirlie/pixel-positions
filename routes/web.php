@@ -2,11 +2,19 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\TagController;
 use Illuminate\Contracts\Session\Session;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\RegisteredUserController;
 
-Route::get('/', [App\Http\Controllers\JobController::class, 'index']);
+Route::get('/', [JobController::class, 'index']);
+
+Route::get('/jobs/create', [JobController::class, 'create'])->middleware(['auth']);
+Route::post('/jobs', [JobController::class, 'store'])->middleware(['auth']);
+
+Route::get('/search', SearchController::class);
+Route::get('/tags/{tag}', TagController::class);
 
 Route::middleware('guest')->group(function () {
   Route::get('/register', [RegisteredUserController::class, 'create']);
