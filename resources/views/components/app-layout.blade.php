@@ -24,6 +24,11 @@
       @auth
         <div>
           <a href="/jobs/create">Post a Job</a>
+
+          <form method="POST" action="/logout">
+            @csrf
+            @method('DELETE')
+          </form>
         </div>
       @endauth
 
